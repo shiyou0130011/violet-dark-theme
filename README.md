@@ -4,7 +4,7 @@ A dark theme for Brackets.
 ## Screenshots
 
 ### Javascript
-![JS]screenshots/js.png
+![JS](screenshots/js.png)
 
 ### PHP / HTML
-![php]screenshots/php.png
+![php](screenshots/php.png)
