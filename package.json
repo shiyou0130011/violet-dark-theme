@@ -1,0 +1,19 @@
+{
+	"name": "violet-dark-theme",
+	"title": "Violet Dark Theme",
+	"description": "A dark theme",
+	"version": "1.0",
+	"author": "Tzuyang Tsai",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/shiyou0130011/violet-dark-theme.git"
+	},
+	"homepage": "https://github.com/shiyou0130011/violet-dark-theme",
+    	"theme": {
+		"file": "theme.less",
+        	"dark": true,
+		"addModeClass": true
+	},
+	"keywords": ["theme", "purple", "violet", "dark"]
+}

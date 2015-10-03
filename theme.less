@@ -1,0 +1,253 @@
+/* 
+ * Violet Dark Theme
+ * @author Tzuyang Tsai (https://github.com/shiyou0130011)
+ * @listence MIT
+ */
+
+@background:	hsl(254, 32%, 9%);
+@panelheader:	hsl(254, 32%, 19%);
+@foreground:	hsl(228, 64%, 78%);
+
+@foldgutter:	hsl(254, 81%, 77%);
+@keyword:	hsl(219, 91%, 70%);
+@variablename:	hsl(259, 63%, 65%);
+
+
+.CodeMirror, .CodeMirror-scroll {
+	background-color: @background;
+	color: @foreground;
+}
+
+.CodeMirror-focused .CodeMirror-activeline-background {
+	background: #5716d3;
+}
+
+.show-line-padding .CodeMirror-focused .CodeMirror-activeline-background {
+	box-shadow: inset 15px 0 0 0 #000;
+}
+
+.CodeMirror-focused .CodeMirror-activeline {
+	.CodeMirror-gutter-elt {
+		background: rgba(0, 0, 0, 0.2);
+		color: #fff;
+	}
+	.inline-widget .CodeMirror-gutter-elt {
+		color: #aaa;	
+	}
+}
+
+.cm-atom, .cm-string, .cm-attribute, .cm-string-2, .cm-hr {
+	color: hsl(235, 39%, 76%);
+}
+
+.cm-attribute{
+	color: #ac89ef;
+	font-weight: bold;
+}
+.cm-number, .cm-plus {
+	color: darkkhaki;
+}
+.cm-property {
+	color: #b77fdb;
+	font-weight: bolder;
+}
+.cm-def, .cm-variable{
+	color: @variablename;
+}
+.cm-variable-2, .cm-variable-3, .cm-operator, .cm-meta, .cm-bracket {
+	color: @foreground;
+}
+.cm-comment {
+	color: #e3eafc;
+}
+.cm-error, .cm-minus {
+	color: firebrick;
+}
+
+.cm-header {
+	color: #d85896;
+}
+.cm-link {
+	color: hsl(217, 66%, 59%);
+	text-decoration: none;
+	border-bottom: 1px dotted;
+}
+.cm-rangeinfo {
+	color: #6c71c4;
+}
+.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {
+	color: @keyword;
+}
+
+/* 
+ * Extra CSS
+ * *************************************/ 
+
+.CodeMirror-searching {
+	background-color: hsl(247, 80%, 60%);
+	&.searching-current-match {
+		background-color: hsl(247, 80%, 90%);
+	}
+}
+
+.CodeMirror-cursor {
+	border-left: 1px solid #c5c8c6 !important;
+}
+
+.CodeMirror-gutters {
+	background-color: @background;
+	border-right: none;
+}
+
+.CodeMirror-linenumber {
+	color: @foldgutter;
+	font-size: .8em;
+	vertical-align: middle;
+}
+.CodeMirror-linenumber:after{
+	content: ".";
+}
+
+.CodeMirror .CodeMirror-selected {
+	background: #333f48;
+}
+.CodeMirror-focused .CodeMirror-selected {
+	background: #0050a0;
+}
+
+.CodeMirror-matchingbracket, .CodeMirror-matchingtag {
+	/* Ensure visibility against indigo inline editor background */
+	background-color: @foreground;
+	color: indigo !important;
+}
+
+.CodeMirror-overwrite .CodeMirror-cursor {
+	border-left: none !important;
+	border-bottom: 1px solid #fff;
+}
+
+
+/* 
+ * panel
+ * *************************************/
+.view-pane{
+	&.active-pane{
+		.pane-header{
+			font-weight: bold;
+		}
+	}
+	.pane-header{
+		background: @panelheader;
+		border-bottom: 1px solid white;
+	}
+}
+
+/*
+	CodeMirror's use of descendant selectors for certain styling causes problems when editors are
+	nested because, for items in the inner editor, the left-hand clause in the selector will now
+	match either the actual containing CodeMirror instance *OR* the outer "host" CodeMirror instance.
+	TODO (issue #324): We'll still have problems if editors can be nested more than one level deep,
+	or if any other descendant-selector-driven CM styles can differ between inner & outer editors
+	(potential problem areas include line wrap and coloring theme: basically, anything in codemirror.css
+	that uses a descandant selector where the CSS class name to the left of the space is something
+	other than a vanilla .CodeMirror)
+ */
+.CodeMirror {
+	.CodeMirror {
+		background: transparent;
+	}
+
+	.CodeMirror .CodeMirror-gutters {
+		background: transparent;
+		border-right: none;
+	}
+
+	.CodeMirror .CodeMirror-activeline-background {
+		background: transparent;
+	}
+
+	.CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
+		background: transparent;
+		color: #767676;
+	}
+
+	.CodeMirror-focused .CodeMirror-activeline-background {
+		background: #2f2f2f;
+	}
+
+	.CodeMirror-focused .CodeMirror-activeline {
+		.CodeMirror-gutter-elt {
+			background: rgba(0, 0, 0, 0.2);
+			color: #fff;
+		}
+	}
+	
+}
+
+.CodeMirror-foldgutter-open:after {
+	color: @foldgutter;
+}
+.CodeMirror-foldgutter-folded:after {
+	color: @foldgutter;
+}
+
+.CodeMirror.over-gutter, .CodeMirror-activeline {
+	.CodeMirror-foldgutter-open:after {
+		color: @foldgutter;
+	}
+}
+
+.CodeMirror-foldmarker {
+	border-color: transparent;
+	color: lavenderblush;
+	font-weight: bolder;
+	background-color: transparent;
+}
+
+.quick-view-highlight{
+	background-color: hsl(256, 71%, 63%);
+	color: hsl(255, 20%, 92%);
+	
+}
+
+/* 
+ * for each language
+ * *************************************/
+.cm-m-clike {
+	/* PHP */
+	&.cm-variable-2{
+		color: @variablename;
+	}
+} 
+.cm-m-css {
+	/* CSS, LESS */
+}
+.cm-m-javascript {
+	&.cm-property {
+		color: @keyword !important;
+		font-weight: normal;
+	}
+	&.cm-variable, &.cm-variable-2{
+		color: @variablename;
+	}
+}
+.cm-m-xml {
+	/* HTML, XML */
+	&.cm-bracket {
+		/* each tags' “<” & “>” */
+		font-weight: bold;
+	}
+}
+
+/* 
+ * Non-editor styling 
+ * *************************************/
+
+.image-view,
+.not-editor {
+	background-color: @background;
+}
+
+.view-pane .image-view {
+	color: @foreground;
+}
